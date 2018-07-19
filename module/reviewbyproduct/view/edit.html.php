@@ -28,13 +28,13 @@
       <?php endif;?>
       <tr>
         <th><?php echo $lang->reviewbyproduct->title;?></th>
-        <td colspan="3"><?php echo html::input('title', $reviewbyproduct->title, "class='form-control' autocomplete='off' placeholder='{$lang->reviewbyproduct->reviewTitle}'");");?></td>
+        <td colspan="3"><?php echo html::input('title', $reviewbyproduct->title, "class='form-control' autocomplete='off' placeholder='{$lang->reviewbyproduct->reviewTitle}'");?></td>
       </tr>
       <?php if ($from == 'project'):?>
       <tr>
         <th><?php echo $lang->reviewbyproduct->reviewStories;?></th>
-        <td colspan="3"><?php
-
+        <td colspan="3">
+          <?php
           echo html::select('reviewStories[]', $stories, str_replace(' ' , '', $reviewbyproduct->reviewStories), 'multiple class="form-control chosen"');
           ?>
         </td>
