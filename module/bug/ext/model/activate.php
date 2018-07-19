@@ -25,6 +25,7 @@ public function activate($bugID)
         ->add('lastEditedDate', $now)
         ->join('openedBuild', ',')
         ->remove('comment,files,labels')
+        ->add('withhold', '')
         ->get();
 
     $this->dao->update(TABLE_BUG)->data($bug)->autoCheck()->where('id')->eq((int)$bugID)->exec();

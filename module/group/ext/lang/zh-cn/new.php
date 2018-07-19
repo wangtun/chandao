@@ -8,7 +8,7 @@ $lang->resource->report->bugSummary         = 'bugSummary';
 $lang->resource->report->storySummary       = 'storySummary';
 $lang->resource->report->storyProgress      = 'storyProgress';
 $lang->resource->report->userTaskSummary    = 'userTaskSummary';
-$lang->resource->report->userBugSummary    = 'userBugSummary';
+$lang->resource->report->userBugSummary     = 'userBugSummary';
 $lang->resource->report->storyReviewSummary = 'storyReviewSummary';
 $lang->resource->report->storyTaskSummary   = 'storyTaskSummary';
 $lang->resource->report->taskSummary        = 'taskSummary';
@@ -117,3 +117,5 @@ $lang->riskmanage->methodOrder[35] = 'batchClose';
 
 $lang->resource->story->switchStoryLock = 'switchStoryLock';
 $lang->resource->task->batchEditDate = 'batchEditDate';
+$lang->resource->bug->withhold = 'withhold';
+$lang->resource->my->projectPlan = 'projectPlan';

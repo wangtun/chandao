@@ -81,12 +81,18 @@
       </tr>
       <tr>
         <th><?php echo $lang->patchbuild->mailto;?></th>
-        <td colspan='3'>
+        <td colspan='2'>
           <div id='mailtoGroup' class='input-group'>
             <?php
             echo html::select('mailto[]', $users, str_replace(' ' , '', $build->mailto), "multiple class='form-control'");
             echo $this->fetch('my', 'buildContactLists');
             ?>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <span class='input-group-addon'><?php echo $lang->patchbuild->versionDeploy;?></span>
+            <?php echo html::select('versionDeploy', $lang->patchbuild->versionDeployList, $build->versionDeploy, 'class="form-control chosen"');?>
           </div>
         </td>
       </tr>
@@ -125,14 +131,8 @@
       </tr>
         <tr>
           <th><?php echo $lang->patchbuild->testEnv?></th>
-          <td colspan='2'>
+          <td colspan='3'>
             <?php echo html::select('testEnv', $lang->patchbuild->testEnvList, $build->testEnv, 'class="form-control chosen"');?>
-          </td>
-          <td>
-            <div class="input-group">
-              <span class='input-group-addon'><?php echo $lang->patchbuild->versionDeploy;?></span>
-              <?php echo html::select('versionDeploy', $lang->patchbuild->versionDeployList, $build->versionDeploy, 'class="form-control chosen"');?>
-            </div>
           </td>
         </tr>
         <tr>

@@ -682,6 +682,7 @@ class commonModel extends model
         }
 
         /* Set module and method, then create link to it. */
+        if(strtolower($module) == 'bug'      and strtolower($method) == 'toissue')    ($module = 'issue') and ($method = 'create');
         if(strtolower($module) == 'story'    and strtolower($method) == 'createcase') ($module = 'testcase') and ($method = 'create');
         if(strtolower($module) == 'bug'      and strtolower($method) == 'tostory')    ($module = 'story') and ($method = 'create');
         if(strtolower($module) == 'bug'      and strtolower($method) == 'createcase') ($module = 'testcase') and ($method = 'create');

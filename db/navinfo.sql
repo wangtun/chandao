@@ -1,5 +1,6 @@
 ALTER TABLE `zt_task` ADD `source` varchar(10) NOT NULL AFTER `fromBug`;
 ALTER TABLE `zt_bug` ADD `discoveryPhase` varchar(30) NOT NULL AFTER `keywords`;
+ALTER TABLE `zt_bug` ADD `withhold` enum('','1','0') NOT NULL DEFAULT '' COMMENT '暂不关闭' AFTER `status`;
 ALTER TABLE `zt_task` ADD `keywords` varchar(255) NOT NULL AFTER `name`;
 ALTER TABLE `zt_bug` ADD `toIssue` mediumint(8) NOT NULL AFTER `toStory`;
 ALTER TABLE `zt_story` ADD `customPlan` text NOT NULL AFTER `plan`;
@@ -241,3 +242,19 @@ CREATE TABLE IF NOT EXISTS `zt_undonetaskreport` (
   PRIMARY KEY (`project`,`date`),
   KEY `undonetaskreport` (`project`,`date`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+alter table zt_bug MODIFY `case` VARCHAR(60);
+UPDATE zt_bug SET `case` = '' WHERE `case` = 0;
+
+
+
+UPDATE zt_block SET `order` = 99, `grid` = 6 WHERE `module` = 'my' AND `title` = '流程图' AND `order` = 1;
+UPDATE zt_block SET `order` = 98, `grid` = 6 WHERE `module` = 'my' AND `title` = '进行中的项目' AND `order` = 3;
+UPDATE zt_block SET `order` = 97, `grid` = 6 WHERE `module` = 'my' AND `title` = '未关闭的产品' AND `order` = 5;
+UPDATE zt_block SET `order` = 96 WHERE `module` = 'my' AND `title` = '最新动态' AND `order` = 2;
+UPDATE zt_block SET `order` = 95 WHERE `module` = 'my' AND `title` = '我的待办' AND `order` = 4;
+UPDATE zt_block SET `order` = 94 WHERE `module` = 'my' AND `title` = '指派给我的用例' AND `order` = 9;
+UPDATE zt_block SET `order` = 93 WHERE `module` = 'my' AND `title` = '指派给我的Bug' AND `order` = 7;
+UPDATE zt_block SET `order` = 92 WHERE `module` = 'my' AND `title` = '指派给我的任务' AND `order` = 6;
+UPDATE zt_block SET `order` = 91 WHERE `module` = 'my' AND `title` = '指派给我的需求' AND `order` = 8;
+ALTER TABLE `zt_bug` ADD `workSeason` varchar(30) NOT NULL AFTER `title`;
+ALTER TABLE `zt_story` ADD `devTeam` varchar(100) NOT NULL COMMENT '开发关联方' AFTER `plan`;

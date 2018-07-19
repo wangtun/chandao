@@ -59,6 +59,12 @@ public function printCell($col, $bug, $users, $builds, $branches, $modulePairs, 
             case 'discoveryPhase':
                 echo $this->lang->bug->discoveryPhaseList[$bug->discoveryPhase];
                 break;
+            case 'withhold':
+                echo $this->lang->bug->withholdList[$bug->withhold];
+                break;
+            case 'workSeason':
+                echo $this->lang->bug->workSeasonList[$bug->workSeason];
+                break;
             case 'branch':
                 echo zget($branches, $bug->branch, '');
                 break;

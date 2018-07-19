@@ -86,7 +86,7 @@ class myCustom extends custom
                     if ($field == 'priList' or $field == 'severityList') {
                         if (!is_numeric($key) or $key > 255) die(js::alert($this->lang->custom->notice->invalidNumberKey));
                     }
-                    if (!empty($key) and $key != 'n/a' and !validater::checkREG($key, '/^[a-z_0-9]+$/')) die(js::alert($this->lang->custom->notice->invalidStringKey));
+                    //if (!empty($key) and $key != 'n/a' and !validater::checkREG($key, '/^[a-z_0-9]+$/')) die(js::alert($this->lang->custom->notice->invalidStringKey));
 
                     /* The length of roleList in user module and typeList in todo module is less than 10. check it when saved. */
                     if ($field == 'roleList' or $module == 'todo' and $field == 'typeList') {

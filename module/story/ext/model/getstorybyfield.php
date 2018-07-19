@@ -60,6 +60,7 @@ public function getStoriesByField($type = 'toTestStory', $browseType, $queryID, 
             ->leftJoin(TABLE_PRODUCT)->alias('t2')->on('t1.product = t2.id')
             ->where('t1.deleted')->eq(0)
             ->andWhere('product')->notin($this->config->story->storyCollectionPoolProducts)
+            ->andWhere('product')->eq(2)
             ->beginIF($type == 'toTestStory')->andWhere('stage')->in('projected,developing,developed')->andWhere('testDate')->ne('0000-00-00')->andWhere('verifyStatus')->ne('freeVerified')->fi()
             ->beginIF($type == 'toReleaseStory')->andWhere('stage')->notin('released,wait,planned')->andWhere('specialPlan')->ne('0000-00-00')->fi()
             ->andWhere("IF (t1.`status` = 'closed',t1.closedReason = 'done',2>1)")

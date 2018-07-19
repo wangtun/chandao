@@ -16,6 +16,7 @@ public static function isClickable($object, $action)
     if($action == 'activate')   return $object->status != 'active';
     if($action == 'tostory')    return $object->status == 'active';
     if($action == 'toissue')    return $object->toIssue == 0;
+    if($action == 'withhold')   return $object->status == 'resolved' and $object->withhold != 1;
 
     return true;
 }

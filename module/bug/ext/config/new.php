@@ -43,3 +43,18 @@ $config->bug->datatable->fieldList['discoveryPhase']['width']    = '80';
 $config->bug->datatable->fieldList['discoveryPhase']['required'] = 'no';
 
 $config->bug->datatable->fieldList['actions']['width']    = '160';
+$config->bug->editor->withhold = array('id' => 'comment', 'tools' => 'bugTools');
+
+$config->bug->search['fields']['withhold']  = $lang->bug->withhold;
+$config->bug->search['params']['withhold']  = array('operator' => '=', 'control' => 'select',  'values' => $lang->bug->withholdList);
+$config->bug->datatable->fieldList['withhold']['title']    = 'withhold';
+$config->bug->datatable->fieldList['withhold']['fixed']    = 'no';
+$config->bug->datatable->fieldList['withhold']['width']    = '80';
+$config->bug->datatable->fieldList['withhold']['required'] = 'no';
+
+$config->bug->search['fields']['workSeason'] = $lang->bug->workSeason;
+$config->bug->search['params']['workSeason'] = array('operator' => '=', 'control' => 'select', 'values' =>$lang->bug->workSeasonList);
+$config->bug->datatable->fieldList['workSeason']['title']    = 'workSeason';
+$config->bug->datatable->fieldList['workSeason']['fixed']    = 'no';
+$config->bug->datatable->fieldList['workSeason']['width']    = '80';
+$config->bug->datatable->fieldList['workSeason']['required'] = 'no';

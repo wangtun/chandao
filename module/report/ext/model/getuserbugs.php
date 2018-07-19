@@ -5,7 +5,7 @@
  * @access public
  * @return array
  */
-public function getUserBugs()
+public function getUserBugSummary()
 {
     $bugs = $this->dao->select('t1.*, t2.name as projectName')->from(TABLE_BUG)->alias('t1')
         ->leftJoin(TABLE_PROJECT)->alias('t2')->on('t1.project = t2.id')

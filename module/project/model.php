@@ -268,6 +268,7 @@ class projectModel extends model
                     $member->join = $today;
                     $member->days = $project->days;
                     $member->type = 'project';
+                    unset($member->id);
                     $this->dao->insert(TABLE_TEAM)->data($member)->exec();
                     if($member->account == $this->app->user->account) $creatorExists = true;
                 }

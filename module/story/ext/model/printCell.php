@@ -41,6 +41,13 @@ public function printCell($col, $story, $users, $branches, $storyStages, $module
             $assignedTo = explode(',', $story->assignedTo); foreach($assignedTo as $account) {if(empty($account)) continue; $assignedToAB .=  $users[trim($account)] . '&nbsp;'; };
             $title = $assignedToAB;
         }
+        //15728 增加开发关联方字段快速识别需求涉及到的前后端开发
+        if($id == 'devTeam')
+        {
+            $devTeamAB = '';
+            $devTeams = explode(',', $story->devTeam); foreach($devTeams as $devTeam) {if(empty($devTeam)) continue; $devTeamAB .=  $this->lang->story->devTeamList[trim($devTeam)] . '&nbsp;'; };
+            $title = $devTeamAB;
+        }
 
         echo "<td class='" . $class . "' title='$title'>";
         switch($id)
@@ -98,6 +105,17 @@ public function printCell($col, $story, $users, $branches, $storyStages, $module
             case 'verifyStatus':
                 echo zget($this->lang->story->verifyStatusList, $story->verifyStatus, $story->verifyStatus);
                 break;
+            //15728 增加开发关联方字段快速识别需求涉及到的前后端开发
+            case 'devTeam':
+                $devTeams = explode(',', $story->devTeam);
+                foreach($devTeams as $devTeam)
+                {
+                    $devTeam = trim($devTeam);
+                    if(empty($devTeam)) continue;
+                    echo zget($this->lang->story->devTeamList, $devTeam) . ' &nbsp;';
+                }
+                break;
+
             case 'source':
                 echo zget($this->lang->story->sourceList, $story->source, $story->source);
                 break;
