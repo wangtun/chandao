@@ -30,6 +30,7 @@ public function getList($objectType, $objectID)
         //1951 补丁版本增加详情页面，并增加历史记录信息
         $this->app->loadLang('patchbuild');
         $this->app->loadLang('storyreview');
+        $this->app->loadLang('reviewbyproduct');
         $this->app->loadLang('issue');
         $this->app->loadLang('riskmanage');
 

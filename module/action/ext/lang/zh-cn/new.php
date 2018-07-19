@@ -11,6 +11,10 @@ $lang->action->objectTypes['storyreview'] = '需求测试';
 $lang->action->label->storyreview = '需求测试单|storyreview|view|$storyReviewID=%s&from=project';
 $lang->action->search->objectTypeList['storyreview'] = '需求测试';
 
+$lang->action->objectTypes['reviewbyproduct'] = '需求评审';
+$lang->action->label->reviewbyproduct = '需求评审单|reviewbyproduct|view|$reviewbyProductID=%s&from=project';
+$lang->action->search->objectTypeList['reviewbyproduct'] = '需求评审';
+
 $lang->action->objectTypes['issue'] = '流出问题';
 $lang->action->label->issue = '流出问题|issue|view|$issueID=%s';
 $lang->action->search->objectTypeList['issue'] = '流出问题';
