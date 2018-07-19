@@ -2,15 +2,18 @@
 /* 查询条中可以选择的对象列表。*/
 $lang->searchObjects['patchbuild']    = '补丁版本';
 $lang->searchObjects['storyreview']   = '需求测试';
+$lang->searchObjects['reviewbyproduct']   = '产品需求评审';
 $lang->searchObjects['issue']         = '流出问题管理';
 $lang->searchObjects['riskmanage']    = '风险管理表';
 
 $lang->icons['storyReview']  = 'list-alt';
+$lang->icons['reviewbyproduct']  = 'list-alt';
 $lang->icons['issue']        = 'bug';
 $lang->icons['riskmanage']   = 'bug';
 
 $lang->menugroup->patchbuild     = 'project';
 $lang->menugroup->storyreview    = 'project';
+$lang->menugroup->reviewbyproduct    = 'project';
 $lang->menugroup->issue          = 'qa';
 $lang->menugroup->riskmanage     = 'report';
 
@@ -40,6 +43,11 @@ $lang->storyreview = new stdclass();
 $lang->storyreview->menu = new stdClass();
 
 $lang->project->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=%s&from=project', 'alias' => 'storyreview,createstoryreview,editstoryreview,', 'subModule' => 'storyreview');
+
+$lang->reviewbyproduct = new stdclass();
+$lang->reviewbyproduct->menu = new stdClass();
+$lang->project->menu->reviewbyproduct = array('link' => '产品需求评审|reviewbyproduct|reviewbyproduct|objectID=%s&from=project', 'alias' => 'reviewbyproduct,createstoryreview,editstoryreview,', 'subModule' => 'reviewbyproduct');
+
 
 $lang->qa->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
 $lang->bug->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');

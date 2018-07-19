@@ -72,6 +72,25 @@ $lang->storyreview->methodOrder[25] = 'view';
 $lang->storyreview->methodOrder[30] = 'leftProblem';
 $lang->storyreview->methodOrder[35] = 'resolve';
 
+/* reviewbyproduct. */
+$lang->moduleOrder[210] = 'reviewbyproduct';
+$lang->resource->reviewbyproduct = new stdclass();
+$lang->resource->reviewbyproduct->reviewbyproduct   = 'reviewbyproduct';
+$lang->resource->reviewbyproduct->create        = 'create';
+$lang->resource->reviewbyproduct->edit          = 'edit';
+$lang->resource->reviewbyproduct->delete        = 'delete';
+$lang->resource->reviewbyproduct->view          = 'view';
+$lang->resource->reviewbyproduct->leftProblem   = 'leftProblem';
+$lang->resource->reviewbyproduct->resolve       = 'resolve';
+
+$lang->reviewbyproduct->methodOrder[5]  = 'create';
+$lang->reviewbyproduct->methodOrder[10] = 'edit';
+$lang->reviewbyproduct->methodOrder[15] = 'delete';
+$lang->reviewbyproduct->methodOrder[20] = 'reviewbyproduct';
+$lang->reviewbyproduct->methodOrder[25] = 'view';
+$lang->reviewbyproduct->methodOrder[30] = 'leftProblem';
+$lang->reviewbyproduct->methodOrder[35] = 'resolve';
+
 $lang->resource->story->batchStoryReview = 'batchStoryReview';
 $lang->resource->story->batchEditDate    = 'batchEditDate';
 
