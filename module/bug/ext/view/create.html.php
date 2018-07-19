@@ -270,11 +270,14 @@ js::set('confirmDeleteTemplate', $lang->bug->confirmDeleteTemplate);
         <?php endif;?>
         <?php if($showKeywords):?>
         <td <?php echo $colspan?>>
+          <!--5337 增加Bug属性字段 所属作业季-->
           <div class='input-group'>
             <?php if($showMailto):?>
             <span class='input-group-addon w-90px' id='keywordsAddonLabel'><?php echo $lang->bug->keywords;?></span>
             <?php endif;?>
-            <?php echo html::input('keywords', $keywords, "class='form-control'");?>
+            <?php echo html::input('keywords', $keywords, "class='form-control' style='width:200px;'");?>
+            <span class="input-group-addon fix-border"><?php echo $lang->bug->workSeason; ?></span>
+            <?php echo html::select('workSeason', $lang->bug->workSeasonList, '', "class='form-control chosen'");?>
           </div>
         </td>
         <?php endif;?>

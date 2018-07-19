@@ -216,6 +216,12 @@
             <th><?php echo $lang->story->specialPlan;?></th>
             <td><?php echo html::input('specialPlan', $story->specialPlan, "class='form-control form-date'");?></td>
           </tr>
+          <!--15728 增加开发关联方字段快速识别需求涉及到的前后端开发-->
+          <tr>
+            <th><?php echo $lang->story->devTeam;?></th>
+            <td><?php echo html::select('devTeam[]', $lang->story->devTeamList, str_replace(' ', '', $story->devTeam), "multiple class='form-control chosen'");?></td>
+          </tr>
+          
         </table>
       </fieldset>
       <fieldset>

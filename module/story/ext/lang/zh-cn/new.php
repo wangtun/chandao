@@ -14,17 +14,20 @@ $lang->story->plan           = '研发计划';
 $lang->story->planAB         = '研发计划';
 $lang->story->build          = '外部用户提需求使用，研发部无需标记';
 $lang->story->testDate       = '提测时间';
-$lang->story->specialPlan    = '正式版时间';
+$lang->story->specialPlan    = '验收版时间';
 $lang->story->testDatePlanAB = '研发专用';
 $lang->story->devComment     = '研发专用,用户无需填写';
 
 $lang->story->reviewStatus      = '评审状态';
 $lang->story->storyReviewID     = '评审单号';
+$lang->story->devTeam           = '开发关联方';
 
 $lang->story->reviewStatusList['']  = '';
 $lang->story->reviewStatusList['notReview']  = '未评审';
 $lang->story->reviewStatusList['hasReview']  = '已评审';
 $lang->story->reviewStatusList['freeReview'] = '免评审';
+
+$lang->story->devTeamList[''] = '';
 
 //3286 创建需求时就可以选择关联需求，并且支持相关需求处显示“无”
 $lang->story->customProduct = '来源产品';
@@ -42,7 +45,7 @@ $lang->story->linkStoryOpenedBys = '相关需求创建者';
 $lang->story->emptyBranch = '所属平台不能为空';
 $lang->story->choseBranch = '请选择所属平台';
 
-$lang->story->testStatus = '开发提测';
+$lang->story->testStatus = '提测确认';
 $lang->story->testStatusList['']         = '';
 $lang->story->testStatusList['tested']   = '已提测';
 $lang->story->testStatusList['notTest']  = '未提测';
@@ -60,7 +63,7 @@ $lang->story->verifyStatusList['portVerified'] = '部分验收';
 $lang->story->verifyStatusList['freeVerified'] = '免验收';
 
 $lang->story->storyProgress = '需求进展';
-$lang->story->batchChangeTestStatus   = '开发提测';
+$lang->story->batchChangeTestStatus   = '提测确认';
 $lang->story->batchChangeVerifyStatus = '测试验收';
 $lang->story->storyProgressSummary = "共 <strong>%s</strong> 个需求，未评审 <strong>%s</strong> 个，评审率<strong>%s</strong>；未提测 <strong>%s</strong> 个，提测率<strong>%s</strong>；未验收 <strong>%s</strong> 个，验收通过率<strong>%s</strong>。";
 

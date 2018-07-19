@@ -54,3 +54,8 @@ $config->story->datatable->fieldList['verifyStatus']['title']    = 'verifyStatus
 $config->story->datatable->fieldList['verifyStatus']['fixed']    = 'no';
 $config->story->datatable->fieldList['verifyStatus']['width']    = '70';
 $config->story->datatable->fieldList['verifyStatus']['required'] = 'no';
+
+$config->story->datatable->fieldList['devTeam']['title']    = 'devTeam';
+$config->story->datatable->fieldList['devTeam']['fixed']    = 'no';
+$config->story->datatable->fieldList['devTeam']['width']    = '100';
+$config->story->datatable->fieldList['devTeam']['required'] = 'no';

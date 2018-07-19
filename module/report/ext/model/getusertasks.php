@@ -7,7 +7,7 @@
  * @access public
  * @return array
 */
-public function getUserTasks($begin, $end)
+public function getUserTaskSummary($begin, $end)
 {
     $date = helper::today();
     $tasks = $this->dao->select('t1.id,t1.deadline,t1.status,t1.assignedTo, t2.name as projectName')->from(TABLE_TASK)->alias('t1')

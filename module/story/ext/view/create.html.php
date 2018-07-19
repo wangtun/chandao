@@ -180,18 +180,22 @@
           </div>
         </td>
         <?php endif;?>
+        <!--15728 增加开发关联方字段快速识别需求涉及到的前后端开发-->
         <?php if(!$hiddenKeywords):?>
         <td <?php echo $colspan?>>
           <div class='input-group'>
             <?php if(!$hiddenMailto):?>
             <span class='input-group-addon'><?php echo $lang->story->keywords;?></span>
             <?php endif;?>
-            <?php echo html::input('keywords', $keywords, 'class="form-control" autocomplete="off"');?>
+            <?php echo html::input('keywords', $keywords, 'class="form-control" autocomplete="off" style="width:200px;"');?>
+            <span class="input-group-addon fix-border"><?php echo $lang->story->devTeam; ?></span>
+            <?php echo html::select('devTeam[]', $lang->story->devTeamList, '', "multiple class='form-control chosen'");?>
           </div>
         </td>
         <?php endif;?>
       </tr>
       <?php endif;?>
+
       <tr>
         <th><?php echo $lang->story->legendAttatch;?></th>
         <td colspan='2'><?php echo $this->fetch('file', 'buildform');?></td>

@@ -121,7 +121,7 @@ class productplanModel extends model
             ->orderBy('begin desc')
             ->fetchPairs();
 
-        if($expired == 'unexpired')
+        /*if($expired == 'unexpired')
         {
             $plans += $this->dao->select('id,CONCAT(title, " [", begin, " ~ ", end, "]") as title')->from(TABLE_PRODUCTPLAN)
                 ->where('product')->in($product)
@@ -132,7 +132,7 @@ class productplanModel extends model
                 ->orderBy('begin desc')
                 ->limit(5)
                 ->fetchPairs();
-        }
+        }*/
 
         foreach($plans as $key => $value)
         {

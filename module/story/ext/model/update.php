@@ -34,6 +34,7 @@ public function update($storyID)
         ->setIF($this->post->closedReason != false and $this->post->closedBy     == false, 'closedBy', $this->app->user->account)
         ->join('reviewedBy', ',')
         ->join('mailto', ',')
+        ->join('devTeam', ',')
         //需求可以指派给多人
         ->join('assignedTo', ',')
         ->remove('linkStories,childStories,files,labels,comment')

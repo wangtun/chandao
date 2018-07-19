@@ -1,7 +1,7 @@
 <?php
 /* 查询条中可以选择的对象列表。*/
 $lang->searchObjects['patchbuild']    = '补丁版本';
-$lang->searchObjects['storyreview']   = '需求评审';
+$lang->searchObjects['storyreview']   = '需求测试';
 $lang->searchObjects['issue']         = '流出问题管理';
 $lang->searchObjects['riskmanage']    = '风险管理表';
 
@@ -39,16 +39,19 @@ $lang->caselib->menu->testtask  = array('link' => '内测版本|testtask|browse|
 $lang->storyreview = new stdclass();
 $lang->storyreview->menu = new stdClass();
 
-$lang->project->menu->storyreview = array('link' => '需求评审|storyreview|storyreview|objectID=%s&from=project', 'alias' => 'storyreview,createstoryreview,editstoryreview,', 'subModule' => 'storyreview');
+$lang->project->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=%s&from=project', 'alias' => 'storyreview,createstoryreview,editstoryreview,', 'subModule' => 'storyreview');
 
-$lang->qa->menu->storyreview = array('link' => '需求评审|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
-$lang->bug->menu->storyreview = array('link' => '需求评审|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
-$lang->testcase->menu->storyreview = array('link' => '需求评审|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
-$lang->caselib->menu->storyreview    =array('link' => '需求评审|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
+$lang->qa->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
+$lang->bug->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
+$lang->testcase->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
+$lang->caselib->menu->storyreview    =array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa', 'subModule' => 'storyreview');
 
 $lang->my->menu->todostory          = '进度预警|my|todostory';
 $lang->todostory       = new stdclass();
 $lang->todostory->menu = $lang->my->menu;
+$lang->my->menu->projectplan = '项目迭代计划|my|projectplan';
+$lang->projectplan           = new stdclass();
+$lang->projectplan->menu     = $lang->my->menu;
 
 $lang->issue = new stdClass();
 $lang->issue->menu = new stdClass();
@@ -60,7 +63,7 @@ $lang->issue->menu->testsuite   = array('link' => '套件|testsuite|browse|');
 $lang->issue->menu->report      = array('link' => '报告|testreport|browse|');
 $lang->issue->menu->caselib     = array('link' => '用例库|testsuite|library');
 $lang->issue->menu->patchbuild  = array('link' => '补丁版本|patchbuild|patchbuild|objectID=0&from=qa');
-$lang->issue->menu->storyreview = array('link' => '需求评审|storyreview|storyreview|objectID=0&from=qa');
+$lang->issue->menu->storyreview = array('link' => '需求测试|storyreview|storyreview|objectID=0&from=qa');
 $lang->issue->menu->issue       = array('link' => '流出问题管理|issue|browse', 'alias' => 'browse,create,edit,', 'subModule' => 'issue');
 
 $lang->qa->menu->issue = array('link' => '流出问题管理|issue|browse');

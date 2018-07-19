@@ -174,6 +174,11 @@ js::set('oldResolvedBuild'       , $bug->resolvedBuild);
             <th><?php echo $lang->bug->discoveryPhase;?></th>
             <td><?php echo html::select('discoveryPhase', $lang->bug->discoveryPhaseList, $bug->discoveryPhase, "class='form-control chosen'");?></td>
           </tr>
+          <!--5337 增加Bug属性字段 所属作业季-->
+          <tr>
+            <th><?php echo $lang->bug->workSeason;?></th>
+            <td><?php echo html::select('workSeason', $lang->bug->workSeasonList, $bug->workSeason, "class='form-control chosen'");?></td>
+          </tr>
 
         </table>
       </fieldset>

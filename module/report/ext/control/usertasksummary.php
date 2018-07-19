@@ -24,7 +24,7 @@ class myReport extends report
         $begin  = date('Y-m-d', $begin);
         $end    = date('Y-m-d', $end);
 
-        $this->view->userTasks = $this->report->getUserTasks($begin, $end);
+        $this->view->userTasks = $this->report->getUserTaskSummary($begin, $end);
         $this->view->users     = $this->loadModel('user')->getPairs('noletter|noclosed|nodeleted');
         $this->view->begin     = $begin;
         $this->view->end       = date('Y-m-d', strtotime($end) - 24 * 3600);

@@ -177,7 +177,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan='14'>
+          <td colspan='15'>
             <div class='table-actions clearfix'>
             <?php
             $storyInfo = sprintf($lang->project->productStories, inlink('linkStory', "project={$project->id}"));

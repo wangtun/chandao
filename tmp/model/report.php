@@ -366,7 +366,7 @@ public function undelete($scriptID)
  * @access public
  * @return array
  */
-public function getUserBugs()
+public function getUserBugSummary()
 {
     $bugs = $this->dao->select('t1.*, t2.name as projectName')->from(TABLE_BUG)->alias('t1')
         ->leftJoin(TABLE_PROJECT)->alias('t2')->on('t1.project = t2.id')
@@ -438,7 +438,7 @@ public function getUserBugs()
  * @access public
  * @return array
 */
-public function getUserTasks($begin, $end)
+public function getUserTaskSummary($begin, $end)
 {
     $date = helper::today();
     $tasks = $this->dao->select('t1.id,t1.deadline,t1.status,t1.assignedTo, t2.name as projectName')->from(TABLE_TASK)->alias('t1')
@@ -600,7 +600,8 @@ public function storyProgress()
         $project->data = new stdClass();
         $project->rowspan = count($stories);
         $data = new stdClass();
-        
+        ksort($stories);
+
         foreach ($stories as $date => $groupStories)
         {
             

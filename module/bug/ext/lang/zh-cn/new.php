@@ -37,3 +37,12 @@ $lang->bug->discoveryPhaseList['production'] = '生产阶段';
 $lang->bug->action->toissue = array('main' => '$date, 由 <strong>$actor</strong> 转为<strong>流出问题</strong>，编号为 <strong>$extra</strong>。');
 $lang->bug->action->linked2patchbuild        = array('main' => '$date, 由 <strong>$actor</strong> 关联到补丁版本 <strong>$extra</strong>。');
 $lang->bug->action->unlinkedfrompatchbuild   = array('main' => '$date, 由 <strong>$actor</strong> 从补丁版本 <strong>$extra</strong> 移除。');
+$lang->bug->action->withhold                 = array('main' => '$date, 由 <strong>$actor</strong> 编辑为<strong>暂不关闭</strong>。');
+
+$lang->bug->withhold         = '暂不关闭';
+$lang->bug->withholdList['1'] = '是';
+$lang->bug->withholdList['0'] = '否';
+$lang->bug->withholdList['']  = '';
+
+$lang->bug->workSeason = '所属作业季';
+$lang->bug->workSeasonList[''] = '';

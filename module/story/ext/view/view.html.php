@@ -295,6 +295,11 @@
                 <th><?php echo $lang->story->verifyStatus;?></th>
                 <td><?php echo $lang->story->verifyStatusList[$story->verifyStatus];?></td>
             </tr>
+            <!--15728 增加开发关联方字段快速识别需求涉及到的前后端开发-->
+            <tr>
+                <th><?php echo $lang->story->devTeam;?></th>
+                <td><?php $devTeams = explode(',', $story->devTeam); foreach($devTeams as $devTeam) {if(empty($devTeam)) continue; echo "<span>" . $lang->story->devTeamList[trim($devTeam)] . '</span> &nbsp;'; }?></td>
+            </tr>
             </table>
           </div>
           <div class='tab-pane' id='legendLifeTime'>

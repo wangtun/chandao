@@ -488,6 +488,7 @@ public function create($projectID = 0, $bugID = 0, $from = '')
         ->setIF($projectID > 0, 'stage', 'projected')
         ->setIF($bugID > 0, 'fromBug', $bugID)
         ->join('mailto', ',')
+        ->join('devTeam', ',')
         ->join('story', ',')
         ->stripTags($this->config->story->editor->create['id'], $this->config->allowedTags)
         ->remove('customProduct,files,labels,needNotReview,newStory,uid')
@@ -847,6 +848,7 @@ public function getStoriesByField($type = 'toTestStory', $browseType, $queryID, 
             ->leftJoin(TABLE_PRODUCT)->alias('t2')->on('t1.product = t2.id')
             ->where('t1.deleted')->eq(0)
             ->andWhere('product')->notin($this->config->story->storyCollectionPoolProducts)
+            ->andWhere('product')->eq(2)
             ->beginIF($type == 'toTestStory')->andWhere('stage')->in('projected,developing,developed')->andWhere('testDate')->ne('0000-00-00')->andWhere('verifyStatus')->ne('freeVerified')->fi()
             ->beginIF($type == 'toReleaseStory')->andWhere('stage')->notin('released,wait,planned')->andWhere('specialPlan')->ne('0000-00-00')->fi()
             ->andWhere("IF (t1.`status` = 'closed',t1.closedReason = 'done',2>1)")
@@ -1091,6 +1093,13 @@ public function printCell($col, $story, $users, $branches, $storyStages, $module
             $assignedTo = explode(',', $story->assignedTo); foreach($assignedTo as $account) {if(empty($account)) continue; $assignedToAB .=  $users[trim($account)] . '&nbsp;'; };
             $title = $assignedToAB;
         }
+        //15728 增加开发关联方字段快速识别需求涉及到的前后端开发
+        if($id == 'devTeam')
+        {
+            $devTeamAB = '';
+            $devTeams = explode(',', $story->devTeam); foreach($devTeams as $devTeam) {if(empty($devTeam)) continue; $devTeamAB .=  $this->lang->story->devTeamList[trim($devTeam)] . '&nbsp;'; };
+            $title = $devTeamAB;
+        }
 
         echo "<td class='" . $class . "' title='$title'>";
         switch($id)
@@ -1148,6 +1157,17 @@ public function printCell($col, $story, $users, $branches, $storyStages, $module
             case 'verifyStatus':
                 echo zget($this->lang->story->verifyStatusList, $story->verifyStatus, $story->verifyStatus);
                 break;
+            //15728 增加开发关联方字段快速识别需求涉及到的前后端开发
+            case 'devTeam':
+                $devTeams = explode(',', $story->devTeam);
+                foreach($devTeams as $devTeam)
+                {
+                    $devTeam = trim($devTeam);
+                    if(empty($devTeam)) continue;
+                    echo zget($this->lang->story->devTeamList, $devTeam) . ' &nbsp;';
+                }
+                break;
+
             case 'source':
                 echo zget($this->lang->story->sourceList, $story->source, $story->source);
                 break;
@@ -1573,6 +1593,7 @@ public function update($storyID)
         ->setIF($this->post->closedReason != false and $this->post->closedBy     == false, 'closedBy', $this->app->user->account)
         ->join('reviewedBy', ',')
         ->join('mailto', ',')
+        ->join('devTeam', ',')
         //需求可以指派给多人
         ->join('assignedTo', ',')
         ->remove('linkStories,childStories,files,labels,comment')

@@ -85,16 +85,17 @@ class myProject extends project
                     {
                         if ($task->assignedTo == '' || $task->assignedTo == 'closed') continue;
                         $isMember = $this->dao->select('*')->from(TABLE_TEAM)
-                                    ->where('project')->eq($projectID)
+                                    ->where('root')->eq($projectID)
                                     ->andWhere('account')->eq($task->assignedTo)
                                     ->fetch();
                         if (!$isMember)
                         {
                             $member = $this->dao->select('*')->from(TABLE_TEAM)
-                                        ->where('project')->eq($oldProjectId)
+                                        ->where('root')->eq($oldProjectId)
                                         ->andWhere('account')->eq($task->assignedTo)
                                         ->fetch();
-                            $member->project = $projectID;
+                            $member->root = $projectID;
+                            unset($member->id);
                             $this->dao->insert(TABLE_TEAM)->data($member)->exec();
                         }
                     }

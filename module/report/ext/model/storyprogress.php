@@ -23,7 +23,8 @@ public function storyProgress()
         $project->data = new stdClass();
         $project->rowspan = count($stories);
         $data = new stdClass();
-        
+        ksort($stories);
+
         foreach ($stories as $date => $groupStories)
         {
             

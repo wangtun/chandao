@@ -66,13 +66,12 @@ public function finish($taskID)
         if($task->consumed < $consumed) die(js::error($this->lang->task->error->consumedSmall));
     }
 
-    $estimate = fixer::input('post')
-        ->setDefault('account', $this->app->user->account)
-        ->setDefault('task', $taskID)
-        ->setDefault('date', date(DT_DATE1))
-        ->setDefault('left', 0)
-        ->remove('finishedDate,comment,assignedTo,files,labels,consumed,realStarted,fileNO,recorder,reviewName,reviewDate,doc,reviewScope,referenceDoc,reviewPlace,reference,effort,pages,conclusion,reviewers,number,reviewer,item,line,severity,description,proposal,changed,action,chkd,tid,tester,AT')
-        ->get();
+    $estimate->uid     = $this->post->uid;
+    $estimate->account = $this->app->user->account;
+    $estimate->task    = $taskID;
+    $estimate->date    = date(DT_DATE1);
+    $estimate->left    = 0;
+
     $estimate->consumed = $consumed;
     if($estimate->consumed) $this->addTaskEstimate($estimate);
 

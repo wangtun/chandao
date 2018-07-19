@@ -13,7 +13,7 @@
 <?php $canOrder = common::hasPriv('project', 'storySort');?>
 <?php include '../../../common/view/header.html.php';?>
 <?php include '../../../common/view/tablesorter.html.php';?>
-<?php if($canOrder) include '../../common/view/sortable.html.php';?>
+<?php if($canOrder) include '../../../common/view/sortable.html.php';?>
 <?php include '../../../common/view/datepicker.html.php';?>
 <?php js::set('projectID', $project->id);?>
 <?php js::set('moduleID', ($type == 'byModule' ? $param : 0));?>
@@ -101,7 +101,7 @@
           <?php endif;?>
           <th class='w-pri {sorter:false}'>    <?php common::printOrderLink('pri',        $orderBy, $vars, $lang->priAB);?></th>
           <th class='{sorter:false}'>          <?php common::printOrderLink('title',      $orderBy, $vars, $lang->story->title);?></th>
-          <th class='w-60px {sorter:false}'>   <?php common::printOrderLink('reviewStatus',      $orderBy, $vars, $lang->story->reviewStatus);?></th>
+          <th class='w-70px {sorter:false}'>   <?php common::printOrderLink('reviewStatus',      $orderBy, $vars, $lang->story->reviewStatus);?></th>
           <!--2085 项目需求中增加需求所属计划的显示-->
           <!--<th class='w-140px {sorter:false}'>  <?php /*common::printOrderLink('plan',      $orderBy, $vars, $lang->story->plan);*/?></th>-->
           <!--2911 优化需求提测计划、发版计划等内容-->
@@ -109,6 +109,7 @@
           <th class='w-90px {sorter:false}'>  <?php common::printOrderLink('specialPlan',      $orderBy, $vars, $lang->story->specialPlan);?></th>
           <th class='w-60px {sorter:false}'>   <?php common::printOrderLink('openedBy',   $orderBy, $vars, $lang->openedByAB);?></th>
           <th class='w-80px {sorter:false}'>   <?php common::printOrderLink('assignedTo', $orderBy, $vars, $lang->assignedToAB);?></th>
+          <th class='w-80px {sorter:false}'>   <?php common::printOrderLink('devTeam', $orderBy, $vars, $lang->story->devTeam);?></th>
           <!--<th class='w-40px {sorter:false}'>   <?php /*common::printOrderLink('estimate',   $orderBy, $vars, $lang->story->estimateAB);*/?></th>
           <th class='w-45px {sorter:false}'>   <?php /*common::printOrderLink('status',     $orderBy, $vars, $lang->statusAB);*/?></th>-->
           <th class='w-60px {sorter:false}'> <?php common::printOrderLink('stage',      $orderBy, $vars, $lang->story->stageAB);?></th>
@@ -164,6 +165,9 @@
           <!--需求可以指派多个人-->
           <td title="<?php $assignedToAB = '';$assignedTo = explode(',', $story->assignedTo); foreach($assignedTo as $account) {if(empty($account)) continue; $assignedToAB .=  $users[trim($account)] . '&nbsp;'; };echo $title = $assignedToAB; ?>">
             <?php $assignedTo = explode(',', $story->assignedTo); foreach($assignedTo as $account) {if(empty($account)) continue; echo "<span>" . $users[trim($account)] . '</span> &nbsp;'; }?>
+          </td>
+          <td title="<?php $devTeamAB = '';$devTeams = explode(',', $story->devTeam); foreach($devTeams as $devTeam) {if(empty($devTeam)) continue; $devTeamAB .=  $lang->story->devTeamList[trim($devTeam)] . '&nbsp;'; };echo $title = $devTeamAB; ?>">
+            <?php $devTeams = explode(',', $story->devTeam); foreach($devTeams as $devTeam) {if(empty($devTeam)) continue; echo "<span>" . $lang->story->devTeamList[trim($devTeam)] . '</span> &nbsp;'; }?>
           </td>
 
          <!-- <td><?php /*echo $story->estimate;*/?></td>

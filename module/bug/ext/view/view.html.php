@@ -31,6 +31,7 @@
         ob_start();
         echo "<div class='btn-group'>";
         common::printIcon('bug', 'toissue', "fromBug=$bug->id", $bug, 'button', 'question-sign', '', '', false, '', $lang->bug->toIssueAB);
+      common::printIcon('bug', 'withhold',     $params, $bug, 'button', 'eye-open', '', 'text-danger iframe showinonlybody', true);
         common::printIcon('bug', 'confirmBug', $params, $bug, 'button', 'search', '', 'iframe', true);
         common::printIcon('bug', 'assignTo',   $params, $bug, 'button', '', '', 'iframe', true);
         common::printIcon('bug', 'resolve',    $params, $bug, 'button', '', '', 'iframe showinonlybody', true);
@@ -207,6 +208,19 @@
                   <?php echo $lang->bug->discoveryPhaseList[$bug->discoveryPhase];?>
                 </td>
               </tr>
+
+              <tr>
+                <th><?php echo $lang->bug->withhold ;?></th>
+                <td>
+                  <?php echo $lang->bug->withholdList[$bug->withhold];?>
+                </td>
+              </tr>
+              <!--5337 增加Bug属性字段 所属作业季-->
+              <tr>
+                <th><?php echo $lang->bug->workSeason; ?></th>
+                <td><?php echo $lang->bug->workSeasonList[$bug->workSeason]; ?></td>
+              </tr>
+
             </table>
           </div>
           <div class='tab-pane' id='legendPrjStoryTask'>
@@ -311,7 +325,19 @@
               <?php if($bug->case):?>
               <tr>
                 <th class='w-60px'><?php echo $lang->bug->fromCase;?></th>
-                <td><?php echo html::a($this->createLink('testcase', 'view', "caseID=$bug->case"), "#$bug->case $bug->caseTitle", '_blank');?></td>
+                <!--bug需要关联多个用例-->
+                <td>
+                  <?php
+                  if(isset($bug->caseTitles))
+                  {
+                    foreach($bug->caseTitles as $caseID => $caseTitle)
+                    {
+                      echo html::a($this->createLink('case', 'view', "bugID=$caseID"), "#$caseID $caseTitle", '_blank') . '<br />';
+                    }
+                  }
+                  ?>
+                </td>
+                
               </tr>
               <?php endif;?>
               <?php if($bug->toCases):?>

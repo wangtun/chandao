@@ -85,7 +85,7 @@ class myProject extends project
             ->where('t2.deleted')->eq('0')
             ->andWhere('t1.product')->in($proID)
             ->andWhere('t1.project')->ne($projectID)
-            ->orderBy('id_desc')
+            ->orderBy('order_desc')
             ->fetchAll();
         
         $this->view->projects      = $projects;
