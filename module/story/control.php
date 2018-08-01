@@ -586,6 +586,14 @@ class story extends control
      */
     public function change($storyID)
     {
+        $projectId = $this->dao->select('project')->from(TABLE_PROJECTSTORY)->where('story')->eq($storyID)->fetch('project');
+        if(!empty($projectId)){
+            $projectStatus = $this->dao->select('lockStory')->from(TABLE_PROJECT)->where('id')->eq($projectId)->fetch('lockStory');
+            if($projectStatus=='1'){
+                echo(js::alert('该项目需求已经锁定，如需新增或变更需求请联系项目管理组'));
+                die(js::locate('back'));
+            }
+        }
         if(!empty($_POST))
         {
             $changes = $this->story->change($storyID);
