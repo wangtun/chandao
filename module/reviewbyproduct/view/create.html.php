@@ -49,7 +49,13 @@
         <td>
            <?php echo html::input('reviewDate', helper::today(), "class='form-control form-date';");?>
         </td>
-        <td  colspan="2">
+        <td>
+          <div class="input-group">
+            <span class='input-group-addon'><?php echo $lang->reviewbyproduct->reviewConclusion;?></span>
+            <?php echo html::select('reviewconclusion', $lang->reviewbyproduct->conclusionList, '', "multiple class='form-control chosen' data-placeholder='{$lang->reviewbyproduct->conclusionAB}'");?>
+          </div>
+        </td>
+        <td>
           <div class="input-group">
             <span class='input-group-addon'><?php echo $lang->reviewbyproduct->mailto;?></span>
             <?php echo html::select('mailto[]', $users, '', "multiple class='form-control chosen' data-placeholder='{$lang->reviewbyproduct->mailtoAB}'");?>
@@ -57,8 +63,20 @@
         </td>
       </tr>
       <tr>
+        <th><?php echo $lang->reviewbyproduct->feasibilityanalysis;?></th>
+        <td colspan="3"><?php echo html::textarea('feasibilityanalysis', '', "rows='7' class='form-control' placeholder='{$lang->reviewbyproduct->feasibilityanalysisAB}'");?></td>
+      </tr>
+      <tr>
+        <th><?php echo $lang->reviewbyproduct->feasibilityresult;?></th>
+        <td colspan="3">  <?php echo html::select('feasibilityresult', $lang->reviewbyproduct->feasibilityResultList, '', "class='form-control chosen' data-placeholder='{$lang->reviewbyproduct->resultAB}'");?></td>
+      </tr>
+      <tr>
         <th><?php echo $lang->reviewbyproduct->problemRecord;?></th>
         <td colspan="3"><?php echo html::textarea('problemRecord', '', "rows='5' class='form-control' placeholder='{$lang->reviewbyproduct->problemTrackingAB}'");?></td>
+      </tr>
+      <tr>
+        <th><?php echo $lang->reviewbyproduct->solveMethod;?></th>
+        <td colspan="3"><?php echo html::textarea('solveMethod', '', "rows='5' class='form-control' placeholder='{$lang->reviewbyproduct->solveMethodAB}'");?></td>
       </tr>
       <tr>
         <th><?php echo $lang->reviewbyproduct->resolvedDate;?></th>
@@ -71,10 +89,6 @@
             <?php echo html::select('solved', $lang->reviewbyproduct->solvedList, '', 'class="form-control"');?>
           </div>
         </td>
-      </tr>
-      <tr>
-        <th><?php echo $lang->reviewbyproduct->solveMethod;?></th>
-        <td colspan="3"><?php echo html::textarea('solveMethod', '', "rows='5' class='form-control' placeholder='{$lang->reviewbyproduct->solveMethodAB}'");?></td>
       </tr>
       <tr>
         <th><?php echo $lang->reviewbyproduct->comment;?></th>

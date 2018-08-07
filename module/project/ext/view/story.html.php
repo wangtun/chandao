@@ -212,7 +212,7 @@
             $lang->testcase->batchCreate = $lang->testcase->create;
             if($productID && $hasDBPriv) common::printIcon('testcase', 'batchCreate', "productID=$story->product&branch=$story->branch&moduleID=$story->module&storyID=$story->id", '', 'list', 'sitemap');
 
-            if(common::hasPriv('project', 'unlinkStory', $project))
+            if(common::hasPriv('project', 'unlinkStory', $project)&& $project->lockStory=='0')
             {
                 $unlinkURL = $this->createLink('project', 'unlinkStory', "projectID=$project->id&storyID=$story->id&confirm=yes");
                 echo html::a("javascript:ajaxDelete(\"$unlinkURL\",\"storyList\",confirmUnlinkStory)", '<i class="icon-unlink"></i>', '', "class='btn-icon' title='{$lang->project->unlinkStory}'");
@@ -294,7 +294,7 @@
                 echo '</ul></li>';
               }
 
-              if(common::hasPriv('project', 'batchUnlinkStory'))
+              if(common::hasPriv('project', 'batchUnlinkStory')&& $project->lockStory=='0')
               {
                   $actionLink = $this->createLink('project', 'batchUnlinkStory', "projectID=$project->id");
                   $misc       = "onclick=\"setFormAction('$actionLink')\"";

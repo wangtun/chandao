@@ -35,11 +35,13 @@
   ?>
     <tr class='colhead'>
       <th class='w-30px'><?php common::printOrderLink('id', $orderBy, $vars, $lang->idAB);?></th>
-      <th class='w-200px'><?php common::printOrderLink('projectName', $orderBy, $vars, $lang->reviewbyproduct->project);?></th>
-      <th class='w-250px'><?php common::printOrderLink('title', $orderBy, $vars, $lang->reviewbyproduct->title);?></th>
-      <th class='w-200px'><?php common::printOrderLink('storyReviewers', $orderBy, $vars, $lang->reviewbyproduct->storyReviewers);?></th>
-      <th class='w-200px'><?php common::printOrderLink('devReviewers', $orderBy, $vars, $lang->reviewbyproduct->devReviewers);?></th>
-      <th class='w-200px'><?php common::printOrderLink('testReviewers', $orderBy, $vars, $lang->reviewbyproduct->testReviewers);?></th>
+      <th class='w-180px'><?php common::printOrderLink('projectName', $orderBy, $vars, $lang->reviewbyproduct->project);?></th>
+      <th class='w-200px'><?php common::printOrderLink('title', $orderBy, $vars, $lang->reviewbyproduct->title);?></th>
+      <th class='w-80px'><?php common::printOrderLink('reviewconclusion', $orderBy, $vars, $lang->reviewbyproduct->reviewConclusion);?></th>
+      <th class='w-80px'><?php common::printOrderLink('feasibilityresult', $orderBy, $vars, $lang->reviewbyproduct->feasibilityresult);?></th>
+      <th class='w-180px'><?php common::printOrderLink('storyReviewers', $orderBy, $vars, $lang->reviewbyproduct->storyReviewers);?></th>
+      <th class='w-180px'><?php common::printOrderLink('devReviewers', $orderBy, $vars, $lang->reviewbyproduct->devReviewers);?></th>
+      <th class='w-180px'><?php common::printOrderLink('testReviewers', $orderBy, $vars, $lang->reviewbyproduct->testReviewers);?></th>
       <th class='w-date'><?php common::printOrderLink('reviewDate', $orderBy, $vars, $lang->reviewbyproduct->reviewDate);?></th>
       <th class='w-80px'><?php echo $lang->actions;?></th>
     </tr>
@@ -50,6 +52,24 @@
     <td><?php echo html::a($this->createLink('reviewbyproduct', 'view', "reviewbyproduct=$reviewbyproduct->id$from=$from"), $reviewbyproduct->id);?></td>
     <td><?php echo $reviewbyproduct->projectCode;?></td>
     <td class='text-left' title='<?php echo $reviewbyproduct->title?>'><?php echo html::a($this->createLink('reviewbyproduct', 'view', "reviewbyproduct=$reviewbyproduct->id&from=$from"), $reviewbyproduct->title);?></td>
+    <td title='<?php echo $reviewbyproduct->reviewconclusion?>'>
+      <?php
+        $conclusionLabel = '不通过';
+        if($reviewbyproduct->reviewconclusion == '1'){
+          $conclusionLabel = '通过';
+        }
+        echo $conclusionLabel
+      ?>
+    </td>
+    <td title='<?php echo $reviewbyproduct->feasibilityresult?>'>
+      <?php
+        $resultLabel = '不可行';
+        if($reviewbyproduct->feasibilityresult=='1'){
+          $resultLabel = '可行';
+        }
+        echo $resultLabel
+      ?>
+    </td>
     <td>
       <?php
       $storyReviewers = '';
