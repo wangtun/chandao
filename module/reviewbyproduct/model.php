@@ -39,6 +39,7 @@ class reviewbyProductModel extends model
         $_POST['solveMethod'] = str_replace("\r\n","<br />",trim($_POST['solveMethod']));
         $_POST['comment'] = str_replace("\r\n","<br />",$_POST['comment']);
         $_POST['problemRecord'] = str_replace("\r\n","<br />",$_POST['problemRecord']);
+        $_POST['feasibilityanalysis'] = str_replace("\r\n","<br />",$_POST['feasibilityanalysis']);
 
         $reviewbyproduct = fixer::input('post')
             ->setDefault('reviewDate', helper::today())
@@ -161,6 +162,7 @@ class reviewbyProductModel extends model
         $_POST['solveMethod'] = str_replace("\r\n","<br />",trim($_POST['solveMethod']));
         $_POST['comment'] = str_replace("\r\n","<br />",$_POST['comment']);
         $_POST['problemRecord'] = str_replace("\r\n","<br />",$_POST['problemRecord']);
+        $_POST['feasibilityanalysis'] = str_replace("\r\n","<br />",$_POST['feasibilityanalysis']);
 
         $storyReview = fixer::input('post')
             ->stripTags($this->config->reviewbyproduct->editor->edit['id'] . ',problemRecord', $this->config->allowedTags)

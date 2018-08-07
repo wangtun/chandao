@@ -28,8 +28,11 @@ $lang->reviewbyproduct->storyReviewers  = '需求参评者';
 $lang->reviewbyproduct->devReviewers    = '开发参评者';
 $lang->reviewbyproduct->testReviewers   = '测试参评者';
 $lang->reviewbyproduct->reviewDate      = '评审日期';
+$lang->reviewbyproduct->reviewConclusion= '评审结论';
 $lang->reviewbyproduct->storySource     = '需求来源';
 $lang->reviewbyproduct->solvedProblem   = '解决问题';
+$lang->reviewbyproduct->feasibilityanalysis = '可行性分析';
+$lang->reviewbyproduct->feasibilityresult = '整体可行性';
 $lang->reviewbyproduct->users           = '使用用户';
 $lang->reviewbyproduct->mailto          = '抄送给';
 $lang->reviewbyproduct->problemRecord   = '问题记录';
@@ -44,12 +47,25 @@ $lang->reviewbyproduct->openedByAB      = '由谁创建';
 $lang->reviewbyproduct->openedDate      = '创建时间';
 
 
+$lang->reviewbyproduct->conclusionList['0']     ='未通过';
+$lang->reviewbyproduct->conclusionList['1']     ='通过';
+
+$lang->reviewbyproduct->feasibilityResultList['0'] = '不可行';
+$lang->reviewbyproduct->feasibilityResultList['1'] = '可行';
+
 $lang->reviewbyproduct->solvedList['0']     ='未解决';
 $lang->reviewbyproduct->solvedList['1']     ='已解决';
 $lang->reviewbyproduct->solvedList['2']     ='待解决';
 
 
 $lang->reviewbyproduct->confirmDelete   = '您确认删除该条记录吗？';
+
+$lang->reviewbyproduct->feasibilityanalysisAB = "可行性分析应该从以下几个方面去开展：" . PHP_EOL . "1、技术可行性：对当前的技术条件（软、硬、数据库、网络等）进行判断，是否可以满足需求设定等需要。". PHP_EOL ."2、成本可行性：包括人力、时间成本估计；基于当前的人力储备、工作安排，以及时间要求，判断该需求是否可以在设定的时间完成设计、开发、测试对应。
+  ". PHP_EOL . "3、时机可行性：是指判断该需求实现的合适的时间点。"  . PHP_EOL . "如果以上三个方面的可行性分析都是可行，那么整体可行性的判断为‘是’，否则判断为‘否’。";
+
+$lang->reviewbyproduct->resultAB = '请选择可行性分析结果';
+$lang->reviewbyproduct->conclusionAB = '请选择评审结论';
+
 
 $lang->reviewbyproduct->deliverablesAB  = '例如：1、脚本；2、接口；3、平台功能';
 $lang->reviewbyproduct->influenceAB     = "主要是影响的功能和范围两方面，可以从耦合关系，数据流，任务流，操作控制等角度考虑。具体解释：" . PHP_EOL . "1、数据耦合：A、B共用一份数据，或数据有一部分重叠。" . PHP_EOL . "2、流程耦合：A、B为流程中前后串联的两个环节。" . PHP_EOL . "3、任务耦合：A、B单独无完成任务，但A+B能完成任务。（无前后顺序）" . PHP_EOL . "4、操作耦合：A向B发送控制指令，或A的状态影响到B。" . PHP_EOL . "例如1、日编要素变更要考虑关联维护是否受影响；2、采集端tips字段变更要考虑tips上传下载及日编显示是否受影响；3、web界面变更要考虑功能应用是否受影响。";
