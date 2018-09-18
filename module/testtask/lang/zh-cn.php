@@ -46,6 +46,7 @@ $lang->testtask->common         = '测试单';
 $lang->testtask->product        = '所属' . $lang->productCommon;
 $lang->testtask->project        = '所属' . $lang->projectCommon;
 $lang->testtask->build          = '版本';
+$lang->testtask->branch         = '所属平台';
 $lang->testtask->owner          = '负责人';
 $lang->testtask->pri            = '优先级';
 $lang->testtask->name           = '名称';

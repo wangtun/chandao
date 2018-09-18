@@ -160,9 +160,10 @@ class testtaskModel extends model
      */
     public function getProjectTasks($projectID, $orderBy = 'id_desc', $pager = null)
     {
-        return $this->dao->select('t1.*, t2.name AS buildName')
+        return $this->dao->select('t1.*, t2.name AS buildName, t3.name AS branchName')
             ->from(TABLE_TESTTASK)->alias('t1')
             ->leftJoin(TABLE_BUILD)->alias('t2')->on('t1.build = t2.id')
+            ->leftJoin(TABLE_BRANCH)->alias('t3')->on('t3.id = t2.branch')
             ->where('t1.project')->eq((int)$projectID)
             ->andWhere('t1.deleted')->eq(0)
             ->orderBy($orderBy)
