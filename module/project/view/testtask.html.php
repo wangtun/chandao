@@ -32,6 +32,7 @@
     <th class='w-id'><?php echo $lang->idAB;?></th>
     <th class='w-150px'><?php echo $lang->testtask->product;?></th>
     <th><?php echo $lang->testtask->name;?></th>
+    <th><?php echo $lang->testtask->branch;?></th>
     <th><?php echo $lang->testtask->build;?></th>
     <th class='w-user'><?php echo $lang->testtask->owner;?></th>
     <th class='w-100px'><?php echo $lang->testtask->begin;?></th>
@@ -51,6 +52,7 @@
     </td>
     <td title="<?php echo zget($products, $task->product, '')?>"><?php echo zget($products, $task->product, '');?></td>
     <td class='text-left' title="<?php echo $task->name?>"><?php echo html::a($this->createLink('testtask', 'view', "taskID=$task->id"), $task->name);?></td>
+    <th><?php echo $task->branchName;?></th>
     <td title="<?php echo $task->buildName?>"><?php echo ($task->build == 'trunk' || empty($task->buildName)) ? $lang->trunk : html::a($this->createLink('build', 'view', "buildID=$task->build"), $task->buildName);?></td>
     <td><?php echo $users[$task->owner];?></td>
     <td><?php echo $task->begin?></td>
