@@ -43,6 +43,7 @@ $lang->task->copy                = '复制任务';
 $lang->task->common           = '任务';
 $lang->task->id               = '编号';
 $lang->task->project          = '所属' . $lang->projectCommon;
+$lang->task->branch           = '所属平台';
 $lang->task->module           = '所属模块';
 $lang->task->moduleAB         = '模块';
 $lang->task->story            = '相关需求';

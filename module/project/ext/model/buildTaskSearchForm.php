@@ -20,5 +20,8 @@ public function buildTaskSearchForm($projectID, $projects, $queryID, $actionURL)
 //优化搜索功能增加空选项；
     $this->config->project->search['params']['module']['values']  = array('' => '') + $this->loadModel('tree')->getTaskOptionMenu($projectID, $startModuleID = 0);
 
+    $prodocutID = $this->dao->select('product')->from(TABLE_PROJECTPRODUCT)->where('project')->eq((int)$projectID);
+    $this->config->project->search['params']['branch']['values']  =  $this->loadModel('branch')->getPairs((int)$prodocutID);
+
     $this->loadModel('search')->setSearchParams($this->config->project->search);
 }

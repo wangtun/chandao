@@ -38,6 +38,7 @@ $config->project->search['fields']['assignedTo']     = $lang->task->assignedTo;
 $config->project->search['fields']['pri']            = $lang->task->pri;
 
 $config->project->search['fields']['project']        = $lang->task->project;
+$config->project->search['fields']['branch']         = $lang->task->branch;
 $config->project->search['fields']['module']         = $lang->task->module;
 $config->project->search['fields']['estimate']       = $lang->task->estimate;      
 $config->project->search['fields']['left']           = $lang->task->left; 
@@ -71,7 +72,8 @@ $config->project->search['params']['assignedTo']     = array('operator' => '=', 
 $config->project->search['params']['pri']            = array('operator' => '=',       'control' => 'select', 'values' => $lang->task->priList);
 
 $config->project->search['params']['project']        = array('operator' => '=',       'control' => 'select', 'values' => '');
-$config->project->search['params']['module']         = array('operator' => 'belong',  'control' => 'select', 'values' => '');
+$config->project->search['params']['module']         = array('operator' => '=',       'control' => 'select', 'values' => '');
+$config->project->search['params']['branch']         = array('operator' => '=',       'control' => 'select', 'values' => '');
 $config->project->search['params']['estimate']       = array('operator' => '=',       'control' => 'input',  'values' => '');
 $config->project->search['params']['left']           = array('operator' => '=',       'control' => 'input',  'values' => '');
 $config->project->search['params']['consumed']       = array('operator' => '=',       'control' => 'input',  'values' => '');
