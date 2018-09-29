@@ -5,7 +5,7 @@ $config->story->storyCollectionPoolProducts = '10,18,26';
 $config->story->develTask = 'devel,web,ios,android,sdk,fos,script';
 //禅道自身bug，待系统修复后可以删除
 $config->story->edit->requiredFields = 'title';
-$config->story->create->requiredFields = 'title';
+$config->story->create->requiredFields = 'title,devTeam';
 
 //1522 增加产品需求所关联的需求和已细分需求的显示
 $config->story->datatable->fieldList['childStories']['title']    = 'childStories';
